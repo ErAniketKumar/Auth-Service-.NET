@@ -1,0 +1,33 @@
+﻿MyApi
+│
+├── Controllers
+│
+├── Data
+│   └── AppDbContext.cs
+│
+├── Entities
+│   └── User.cs
+│
+├── DTOs
+│   ├── UserCreateDto.cs
+│   └── UserResponseDto.cs
+│
+├── Interfaces
+│   ├── IUserService.cs
+│   └── IUserRepository.cs
+│
+├── Services
+│   └── UserService.cs
+│
+├── Repositories
+│   └── UserRepository.cs
+│
+├── Middleware
+│
+├── Mappings
+│
+├── Validators
+│
+├── appsettings.json
+│
+└── Program.cs

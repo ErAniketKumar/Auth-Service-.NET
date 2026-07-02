@@ -1,0 +1,19 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace _NET_Practice_1.Entities
+{
+    public class Employee
+    {
+        [Key]
+        public Guid Id { get; set; } = Guid.NewGuid();
+        public string? Name { get; set; }
+        public DateTime? CreatedDate {  get; set; }
+        public DateTime? LastModifiedDate { get; set; }
+        public DateOnly? DOB { get; set; }
+        public string? Position { get; set; }
+
+        public string? Department { get; set; }
+        public string? EmailAddress { get; set; }
+
+    }
+}
