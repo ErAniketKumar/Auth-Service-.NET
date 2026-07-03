@@ -19,7 +19,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IPasswordService, PasswordService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
-builder.Services.AddScoped<IGoogleAuthService, GoogleAuthService > ();
+builder.Services.AddScoped<IGoogleAuthService, GoogleAuthService>();
 
 builder.Services.AddAuthentication(options =>
 {
@@ -50,15 +50,14 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{ 
-   app.UseSwagger();
-   app.UseSwaggerUI();
-}
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication(); 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
