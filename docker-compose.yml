@@ -1,10 +1,6 @@
 services:
-
   auth-service:
-
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: eraniket/auth-service-dotnet:latest
 
     container_name: auth-service
 
