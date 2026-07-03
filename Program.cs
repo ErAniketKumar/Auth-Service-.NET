@@ -51,6 +51,7 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
+// production swagger 
 app.UseSwagger();
 app.UseSwaggerUI();
 
