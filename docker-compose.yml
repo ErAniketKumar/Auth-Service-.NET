@@ -1,39 +1,18 @@
-version: '3.9'
-
 services:
 
   auth-service:
 
     build:
       context: .
+      dockerfile: Dockerfile
 
     container_name: auth-service
 
     ports:
       - "8080:8080"
 
-    depends_on:
-      - sqlserver
-
     environment:
-      ASPNETCORE_ENVIRONMENT: Development
-      ConnectionStrings__DefaultConnection: "Server=aniket;Database=PracticeDb1;Trusted_connection=True;TrustServerCertificate=True;"
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionStrings__DefaultConnection: "Server=tcp:kalawatiputra-server.database.windows.net,1433;Initial Catalog=kalawatiputra-db;Persist Security Info=False;User ID=aniadmin;Password=AniketAz@95;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 
-  sqlserver:
-
-    image: mcr.microsoft.com/mssql/server:2022-latest
-
-    container_name: sqlserver
-
-    environment:
-      ACCEPT_EULA: "Y"
-      MSSQL_SA_PASSWORD: "YourPassword123!"
-
-    ports:
-      - "1433:1433"
-
-    volumes:
-      - sql_data:/var/opt/mssql
-
-volumes:
-  sql_data:
+    restart: unless-stopped

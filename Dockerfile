@@ -14,18 +14,20 @@ RUN dotnet restore
 # Copy remaining source code
 COPY . .
 
-# Publish the application
-RUN dotnet publish -c Release -o /app/publish
+# Publish application
+RUN dotnet publish -c Release -o /app/publish --no-restore
 
 # ==========================
 # Stage 2 - Runtime
 # ==========================
-FROM mcr.microsoft.com/dotnet/aspnet:10.0
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
 
 WORKDIR /app
 
 COPY --from=build /app/publish .
 
 EXPOSE 8080
+
+ENV ASPNETCORE_URLS=http://+:8080
 
 ENTRYPOINT ["dotnet","_NET-Practice-1.dll"]
