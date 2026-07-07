@@ -1,4 +1,5 @@
 ﻿using _NET_Practice_1.Entities;
+using StackExchange.Redis;
 
 namespace _NET_Practice_1.Interfaces
 {

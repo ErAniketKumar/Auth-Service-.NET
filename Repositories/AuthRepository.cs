@@ -2,6 +2,7 @@
 using _NET_Practice_1.Entities;
 using _NET_Practice_1.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using StackExchange.Redis;
 
 namespace _NET_Practice_1.Repositories
 {
